@@ -89,17 +89,27 @@ var upperCasedCharacters = [
 ];
 
 // Function to prompt user for password options
+let userAnswer;
 function getPasswordOptions() {
-
+  userAnswer = confirm("Would you like your password to have special characters? ");
+  console.log(userAnswer);
 }
+getPasswordOptions();
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  let randomIndex;
+  if(userAnswer){
+    randomIndex = Math.floor(Math.random() * arr.length);
+  }
+  return arr[randomIndex]  // returns random value from array
 }
+
 
 // Function to generate password with user input
 function generatePassword() {
+  let oneCharacter = getRandom(specialCharacters);
+  console.log(oneCharacter);
 
 }
 
