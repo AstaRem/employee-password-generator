@@ -107,19 +107,31 @@ function getPasswordOptions() {
 getPasswordOptions();
 
 
-// Function for getting a random element from an array
-function getRandom(arr) {
-  let randomIndex;
-  for(let i = 0; i < 4; i++){
-    if(answerLowerC){
-      randomIndex = Math.floor(Math.random() * 4);
-      console.log(getPasswordOptions());
+let randomIndex;
+for(let i = 0; i < 4; i++){
+  if(answerLowerC){
+    randomIndex = Math.floor(Math.random() * arr[i].length);
+    console.log[randomIndex];
+    console.log(arr[i][randomIndex]);
 
-    }
-    // return arr[randomIndex]  // returns random value from array
-  
   }
+
 }
+
+
+// Function for getting a random element from an array
+// function getRandom(arr) {
+//   let randomIndex;
+//   for(let i = 0; i < 4; i++){
+//     if(answerLowerC){
+//       randomIndex = Math.floor(Math.random() * 4);
+//       console.log(arr[randomIndex]);
+
+//     }
+//     // return arr[randomIndex]  // returns random value from array
+  
+//   }
+// }
 
 
 // Function to generate password with user input
