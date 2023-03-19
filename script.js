@@ -102,6 +102,13 @@ let passwordString = "";
 let passwordLength = prompt("How long you would like your password to be? Enter a number between 8 and 128:");
 console.log(`Your password length is ${passwordLength}`);
 
+if(passwordLength >= 8 && passwordLength <= 128){
+  getPasswordOptions();
+  console.log(answers);
+} else {
+  confirm("Please refresh the page and enter correct number for your password length!")
+}
+
 function getPasswordOptions() {
   answerSpecialChar = confirm("Would you like your password to have special characters? ");
   answerNum = confirm("Would you like your password to have numbers? ");
@@ -109,8 +116,19 @@ function getPasswordOptions() {
   answerUpperC = confirm("Would you like your password to have uppercases? ");
   return answers = [answerSpecialChar, answerNum, answerLowerC, answerUpperC];
 }
-getPasswordOptions();
-console.log(answers);
+
+// getPasswordOptions();
+// console.log(answers);
+if(!answers[0] && !answers[1] && !answers[2] && !answers[3]){
+  confirm("You need to choose at least one character option. Please refresh page and start again.")
+
+}
+  // for(let a = 0; a < answers.length; a++){
+  //   if (!answers[0]) {
+  //   }
+  //   // confirm("You need to choose at least one character option. Please refresh page and start again.")
+  // }
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -118,14 +136,16 @@ function getRandom(arr) {
    return randomIndex;
   }
 
-//   let randomIndex2 = getRandom(specialCharacters);
-// // return passwordString; 
-// console.log(`random index is ${randomIndex2}`);
 
-
-// Function to generate password with user input
+  // Function to generate password with user input
 //I use the same i index for answers array and for arr - both have 4 items
 function generatePassword(arr, answers) {
+  // for(let a = 0; a < answers.length; a++){
+  //   if (!answers[a]) {
+  //   }
+  //   // confirm("You need to choose at least one character option. Please refresh page and start again.")
+  // }
+  
   while(passwordString.length < passwordLength ){
     for(let i = 0; i < answers.length; i++){
       if(answers[i]){
@@ -144,15 +164,6 @@ function generatePassword(arr, answers) {
    return shortenedString;
   }
 
-  // if(passwordString.length < answerLength){
-  //   console.log(oneRound += getRandom(answers));
-  // }
-  // console.log(`Your generated password is : ${oneRound} `);
-
-  // }
-
-  
-
 
 
 // Get references to the #generate element
@@ -160,6 +171,7 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
+
   var password = generatePassword(arr, answers);
   var passwordText = document.querySelector('#password');
 
