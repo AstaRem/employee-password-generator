@@ -109,11 +109,16 @@ getPasswordOptions();
 
 let randomIndex;
 for(let i = 0; i < arr.length; i++){
-  if(arr[i]){
+  if(answerLowerC){
+    randomIndex = Math.floor(Math.random() * arr[i].length);
+    console.log[`RandomIndex from answerLowerC: ${randomIndex}`];
+    console.log(`value from aswerLowerC array: ${arr[i][randomIndex]}`);
+  } else if (answerUpperC){
     randomIndex = Math.floor(Math.random() * arr[i].length);
     console.log[randomIndex];
     console.log(arr[i][randomIndex]);
-  } 
+
+  }
 }
 
 
