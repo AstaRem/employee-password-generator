@@ -99,8 +99,8 @@ let answerSpecialChar;
 let answers = [];
 let passwordString = "";
 
-let answerLength = prompt("How long you would like your password to be? Enter a number between 8 and 128:");
-console.log(`Your password length is ${answerLength}`);
+let passwordLength = prompt("How long you would like your password to be? Enter a number between 8 and 128:");
+console.log(`Your password length is ${passwordLength}`);
 
 function getPasswordOptions() {
   answerSpecialChar = confirm("Would you like your password to have special characters? ");
@@ -113,35 +113,43 @@ getPasswordOptions();
 console.log(answers);
 
 // Function for getting a random element from an array
-function getRandom(answers) {
-  let randomIndex;
-  for(let i = 0; i < answers.length; i++){
-    if(answers[i]){
-      randomIndex = Math.floor(Math.random() * arr[i].length);
-      console.log(randomIndex);
-      symbolValue = arr[i][randomIndex];
-      passwordString += symbolValue;
-      console.log(passwordString);
-    } 
-    
-  }
-   return passwordString;
+function getRandom(arr) {
+  let randomIndex = Math.floor(Math.random() * arr.length);
+   return randomIndex;
   }
 
-// return passwordString;
-let oneRound = getRandom(answers);
+//   let randomIndex2 = getRandom(specialCharacters);
+// // return passwordString; 
+// console.log(`random index is ${randomIndex2}`);
 
 
 // Function to generate password with user input
-function generatePassword(passwordString) {
-
-
-  if(passwordString.length < answerLength){
-    console.log(oneRound += getRandom(answers));
+//I use the same i index for answers array and for arr - both have 4 items
+function generatePassword(arr, answers) {
+  while(passwordString.length < passwordLength ){
+    for(let i = 0; i < answers.length; i++){
+      if(answers[i]){
+        randomIndex = getRandom(arr[i]);
+        console.log(`in array ${arr[i]} random index is: ${randomIndex}`);
+        symbolValue = arr[i][randomIndex];
+        passwordString += symbolValue;
+        console.log(passwordString);
+      } 
+    }
   }
-  console.log(`Your generated password is : ${oneRound} `);
+    //password is shortened to the ammount of symbols user requested
+    let shortenedString = passwordString.slice(0, passwordLength);
+    console.log(shortenedString);
 
+   return shortenedString;
   }
+
+  // if(passwordString.length < answerLength){
+  //   console.log(oneRound += getRandom(answers));
+  // }
+  // console.log(`Your generated password is : ${oneRound} `);
+
+  // }
 
   
 
@@ -152,7 +160,7 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword(passwordString);
+  var password = generatePassword(arr, answers);
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
