@@ -6,7 +6,9 @@ This web app generates random password for the user, employee in this case.
 
 Password might have special characters, numbers, lowercase, uppercase. User does not have to say yes to all the options, but they need to choose at least one.
 
-User is asked to enter password length:
+Password is generated when the button is clicked.
+
+User is asked to enter password length, it should be not less that 8 and not more than 128 characters:
 ![start](images/start.jpg)
 
 After that user have to answer 4 questions about their character choices (each of them displayed one by one in separate pop-up windows):

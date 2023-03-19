@@ -100,12 +100,10 @@ let passwordString = "";
 
 // get password length from the user
 let passwordLength = prompt("How long you would like your password to be? Enter a number between 8 and 128:");
-console.log(`Your password length is ${passwordLength}`);
 
 //check if password length is matching
 if(passwordLength >= 8 && passwordLength <= 128){
   getPasswordOptions();
-  console.log(answers);
 } else {
   confirm("Please refresh the page and enter correct number for your password length!")
 }
@@ -138,17 +136,13 @@ function generatePassword(arr, answers) {
     for(let i = 0; i < answers.length; i++){
       if(answers[i]){
         randomIndex = getRandom(arr[i]);
-        console.log(`in array ${arr[i]} random index is: ${randomIndex}`);
         symbolValue = arr[i][randomIndex];
         passwordString += symbolValue;
-        console.log(passwordString);
       } 
     }
   }
     //password is shortened to the number of symbols user requested
     let shortenedString = passwordString.slice(0, passwordLength);
-    console.log(shortenedString);
-
    return shortenedString;
   }
 
