@@ -1,5 +1,5 @@
 // Array of special characters to be included in password
-var specialCharacters = [
+const specialCharacters = [
   '@',
   '%',
   '+',
@@ -26,10 +26,10 @@ var specialCharacters = [
 ];
 
 // Array of numeric characters to be included in password
-var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 // Array of lowercase characters to be included in password
-var lowerCasedCharacters = [
+const lowerCasedCharacters = [
   'a',
   'b',
   'c',
@@ -59,7 +59,7 @@ var lowerCasedCharacters = [
 ];
 
 // Array of uppercase characters to be included in password
-var upperCasedCharacters = [
+const upperCasedCharacters = [
   'A',
   'B',
   'C',
@@ -88,18 +88,27 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+// let arr = [specialCharacters, numericCharacters, lowerCasedCharacters, upperCasedCharacters]
+
 // Function to prompt user for password options
-let userAnswer;
+let answerLowerC;
+let answerUpperC;
+let answerNum;
+let answerSpecialChar;
 function getPasswordOptions() {
-  userAnswer = confirm("Would you like your password to have special characters? ");
-  console.log(userAnswer);
+  answerLowerC = confirm("Would you like your password to have lowercases? ");
+  answerUpperC = confirm("Would you like your password to have uppercases? ");
+  answerNum = confirm("Would you like your password to have numbers? ");
+  answerSpecialChar = confirm("Would you like your password to have special characters? ");
+  console.log(answerLowerC, answerUpperC, answerNum, answerSpecialChar);
 }
 getPasswordOptions();
 
 // Function for getting a random element from an array
 function getRandom(arr) {
   let randomIndex;
-  if(userAnswer){
+  
+  if(arr === true){
     randomIndex = Math.floor(Math.random() * arr.length);
   }
   return arr[randomIndex]  // returns random value from array
@@ -107,11 +116,13 @@ function getRandom(arr) {
 
 
 // Function to generate password with user input
-function generatePassword() {
-  let oneCharacter = getRandom(specialCharacters);
+function generatePassword(arr) {
+  let oneCharacter = getRandom(arr);
   console.log(oneCharacter);
 
 }
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
