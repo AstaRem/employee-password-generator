@@ -97,6 +97,10 @@ let answerUpperC;
 let answerNum;
 let answerSpecialChar;
 let answers = [];
+
+let answerLength = prompt("How long you would like your password to be? Enter a number between 8 and 128:");
+console.log(`Your password length is ${answerLength}`);
+
 function getPasswordOptions() {
   answerSpecialChar = confirm("Would you like your password to have special characters? ");
   answerNum = confirm("Would you like your password to have numbers? ");
@@ -125,12 +129,10 @@ function getRandom(answers) {
    
   }
 
-  getRandom(answers);
 
 // Function to generate password with user input
 function generatePassword(arr) {
-  let oneCharacter = getRandom(arr);
-  console.log(oneCharacter);
+  getRandom(answers);
 
 }
 
