@@ -89,7 +89,6 @@ const upperCasedCharacters = [
 ];
 
 let arr = [specialCharacters, numericCharacters, lowerCasedCharacters, upperCasedCharacters]
-// console.log(arr.length);
 
 // Function to prompt user for password options
 let answerLowerC;
@@ -99,9 +98,11 @@ let answerSpecialChar;
 let answers = [];
 let passwordString = "";
 
+// get password length from the user
 let passwordLength = prompt("How long you would like your password to be? Enter a number between 8 and 128:");
 console.log(`Your password length is ${passwordLength}`);
 
+//check if password length is matching
 if(passwordLength >= 8 && passwordLength <= 128){
   getPasswordOptions();
   console.log(answers);
@@ -109,6 +110,7 @@ if(passwordLength >= 8 && passwordLength <= 128){
   confirm("Please refresh the page and enter correct number for your password length!")
 }
 
+//get character options from user
 function getPasswordOptions() {
   answerSpecialChar = confirm("Would you like your password to have special characters? ");
   answerNum = confirm("Would you like your password to have numbers? ");
@@ -117,35 +119,21 @@ function getPasswordOptions() {
   return answers = [answerSpecialChar, answerNum, answerLowerC, answerUpperC];
 }
 
-// getPasswordOptions();
-// console.log(answers);
+// check if user chose at least one character option
 if(!answers[0] && !answers[1] && !answers[2] && !answers[3]){
   confirm("You need to choose at least one character option. Please refresh page and start again.")
-
 }
-  // for(let a = 0; a < answers.length; a++){
-  //   if (!answers[0]) {
-  //   }
-  //   // confirm("You need to choose at least one character option. Please refresh page and start again.")
-  // }
 
-
-// Function for getting a random element from an array
+// Function for getting a random number
 function getRandom(arr) {
   let randomIndex = Math.floor(Math.random() * arr.length);
    return randomIndex;
   }
 
 
-  // Function to generate password with user input
-//I use the same i index for answers array and for arr - both have 4 items
+// Function to generate password with user input
+//I use the same i index for answers array and for arr - both arrays have 4 items
 function generatePassword(arr, answers) {
-  // for(let a = 0; a < answers.length; a++){
-  //   if (!answers[a]) {
-  //   }
-  //   // confirm("You need to choose at least one character option. Please refresh page and start again.")
-  // }
-  
   while(passwordString.length < passwordLength ){
     for(let i = 0; i < answers.length; i++){
       if(answers[i]){
@@ -157,7 +145,7 @@ function generatePassword(arr, answers) {
       } 
     }
   }
-    //password is shortened to the ammount of symbols user requested
+    //password is shortened to the number of symbols user requested
     let shortenedString = passwordString.slice(0, passwordLength);
     console.log(shortenedString);
 
