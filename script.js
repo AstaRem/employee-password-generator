@@ -108,14 +108,12 @@ getPasswordOptions();
 
 
 let randomIndex;
-for(let i = 0; i < 4; i++){
-  if(answerLowerC){
+for(let i = 0; i < arr.length; i++){
+  if(arr[i]){
     randomIndex = Math.floor(Math.random() * arr[i].length);
     console.log[randomIndex];
     console.log(arr[i][randomIndex]);
-
-  }
-
+  } 
 }
 
 
