@@ -88,7 +88,8 @@ const upperCasedCharacters = [
   'Z'
 ];
 
-// let arr = [specialCharacters, numericCharacters, lowerCasedCharacters, upperCasedCharacters]
+let arr = [specialCharacters, numericCharacters, lowerCasedCharacters, upperCasedCharacters]
+// console.log(arr.length);
 
 // Function to prompt user for password options
 let answerLowerC;
@@ -100,18 +101,24 @@ function getPasswordOptions() {
   answerUpperC = confirm("Would you like your password to have uppercases? ");
   answerNum = confirm("Would you like your password to have numbers? ");
   answerSpecialChar = confirm("Would you like your password to have special characters? ");
-  console.log(answerLowerC, answerUpperC, answerNum, answerSpecialChar);
+  return [answerLowerC, answerUpperC, answerNum, answerSpecialChar];
 }
+
 getPasswordOptions();
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
   let randomIndex;
+  for(let i = 0; i < 4; i++){
+    if(answerLowerC){
+      randomIndex = Math.floor(Math.random() * 4);
+      console.log(getPasswordOptions());
+
+    }
+    // return arr[randomIndex]  // returns random value from array
   
-  if(arr === true){
-    randomIndex = Math.floor(Math.random() * arr.length);
   }
-  return arr[randomIndex]  // returns random value from array
 }
 
 
