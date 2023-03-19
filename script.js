@@ -97,6 +97,7 @@ let answerUpperC;
 let answerNum;
 let answerSpecialChar;
 let answers = [];
+let passwordString = "";
 
 let answerLength = prompt("How long you would like your password to be? Enter a number between 8 and 128:");
 console.log(`Your password length is ${answerLength}`);
@@ -111,11 +112,9 @@ function getPasswordOptions() {
 getPasswordOptions();
 console.log(answers);
 
-
 // Function for getting a random element from an array
 function getRandom(answers) {
   let randomIndex;
-  let passwordString = "";
   for(let i = 0; i < answers.length; i++){
     if(answers[i]){
       randomIndex = Math.floor(Math.random() * arr[i].length);
@@ -126,15 +125,25 @@ function getRandom(answers) {
     } 
     
   }
-   
+   return passwordString;
   }
+
+// return passwordString;
+let oneRound = getRandom(answers);
 
 
 // Function to generate password with user input
-function generatePassword(arr) {
-  getRandom(answers);
+function generatePassword(passwordString) {
 
-}
+
+  if(passwordString.length < answerLength){
+    console.log(oneRound += getRandom(answers));
+  }
+  console.log(`Your generated password is : ${oneRound} `);
+
+  }
+
+  
 
 
 
@@ -143,7 +152,7 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = generatePassword(passwordString);
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
